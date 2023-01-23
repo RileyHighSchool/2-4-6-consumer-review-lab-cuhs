@@ -162,4 +162,19 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+  public static double totalSentiment(String fileName){
+
+    String customerReview = textToString(fileName);
+    
+    double  counter = 0;
+
+    while(customerReview.length() > 0){
+      int spaceLoc = customerReview.indexOf("");
+
+      String word = customerReview.substring(0, spaceLoc);
+      customerReview = customerReview.substring(spaceLoc+1);
+
+    }
+    return total;
+  }
 }
