@@ -37,7 +37,7 @@ public class Review {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
-        System.out.println(temp);
+       // System.out.println(temp);
         posAdjectives.add(temp);
       }
       input.close();
@@ -165,16 +165,44 @@ public class Review {
   public static double totalSentiment(String fileName){
 
     String customerReview = textToString(fileName);
-    
-    double  counter = 0;
-
-    while(customerReview.length() > 0){
-      int spaceLoc = customerReview.indexOf("");
-
+    //total
+    double total = 0.0;
+    //loop
+    while(customerReview.length() > 0 && customerReview.indexOf(" ") != -1){
+      //find space
+      int spaceLoc = customerReview.indexOf(" ");
+      //get word
       String word = customerReview.substring(0, spaceLoc);
+      //reset consumerReview
       customerReview = customerReview.substring(spaceLoc+1);
 
+
+      // sentiment of word
+      total += sentimentVal(removePunctuation(word));
     }
-    return total;
+    total += sentimentVal(removePunctuation(customerReview));
+    return total; 
   }
+
+
+
+
+  public static int starRating(String fileName){
+    double sentiment = totalSentiment(fileName);
+    
+    
+    if (sentiment < 15){
+      return 1; 
+    } else if (sentiment < 35){
+      return 2;
+    } else if (sentiment < 50){
+      return 3;
+    } else if (sentiment < 75){
+      return 4;
+    } else {
+      return 5;
+    }
+  
+    }
+  
 }
