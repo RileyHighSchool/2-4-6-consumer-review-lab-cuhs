@@ -205,7 +205,7 @@ public class Review {
 
 
     }
-    public static String fakeReview(String fileName){
+    public static String fakeReview(String fileName, boolean isPos){
 
       String oldReview = textToString(fileName);
       
@@ -220,19 +220,20 @@ public class Review {
 
         newReview += oldReview.substring(0, star);
       
-        newReview += randomAdjective();
+        if(isPos){
+          newReview += randomNegativeAdj() + " ";
 
-        oldReview += oldReview.substring(0, space );
-
-
-
-
+        }
+        if 
 
 
+        newReview += randomAdjective() + " ";
 
+        oldReview = oldReview.substring(space + 1 );
 
       }
-
+      newReview += oldReview;
+      return newReview;
 
     }
 
