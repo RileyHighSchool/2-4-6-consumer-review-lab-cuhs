@@ -202,7 +202,39 @@ public class Review {
     } else {
       return 5;
     }
-  
+
+
     }
-  
+    public static String fakeReview(String fileName){
+
+      String oldReview = textToString(fileName);
+      
+      String newReview = "";
+      
+
+      while(oldReview.length() > 0 && oldReview.indexOf("*") != -1){
+
+        int star = oldReview.indexOf("*");
+
+        int space = oldReview.indexOf(" ", star);
+
+        newReview += oldReview.substring(0, star);
+      
+        newReview += randomAdjective();
+
+        oldReview += oldReview.substring(0, space );
+
+
+
+
+
+
+
+
+      }
+
+
+    }
+
+
 }
