@@ -218,13 +218,17 @@ public class Review {
 
         int space = oldReview.indexOf(" ", star);
 
+        
+
         newReview += oldReview.substring(0, star);
       
         if(isPos){
-          newReview += randomNegativeAdj() + " ";
+          newReview += randomPositiveAdj() + " ";
 
+        } else {
+          newReview += randomNegativeAdj() + " ";
         }
-        if 
+        
 
 
         newReview += randomAdjective() + " ";
@@ -238,4 +242,38 @@ public class Review {
     }
 
 
+
+    public static String cuhsReview(String fileName, boolean isPos){
+      String oldReview = textToString(fileName);
+      
+      String newReview = "";
+      
+
+      while(oldReview.length() > 0 && oldReview.indexOf("*") != -1){
+
+        int star = oldReview.indexOf("*");
+
+        int space = oldReview.indexOf(" ", star);
+
+        
+
+        newReview += oldReview.substring(0, star);
+      
+        if(isPos){
+          newReview += " really " + randomPositiveAdj() + " ";
+
+        } else {
+          newReview += " really " + randomNegativeAdj() + " ";
+        }
+        
+
+
+        
+
+        oldReview = oldReview.substring(space + 1 );
+
+      }
+      newReview += oldReview;
+      return newReview;
+    }
 }

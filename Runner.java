@@ -9,6 +9,8 @@ public class Runner {
 
 
         // System.out.println(Review.totalSentiment("simpleReview.txt"));
-        System.out.println(Review.fakeReview("simpleReview.txt"));
+        //System.out.println(Review.fakeReview("simpleReview.txt"));
+
+        System.out.println(Review.cuhsReview("simpleReview.txt", false));
     }
 }
